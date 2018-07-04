@@ -19,8 +19,9 @@ class SerialPortV2
             printf("New serial port created");
         }
 
-        void open(std::string com, std::string baud)
+        void open(std::string comx, std::string baud)
         {
+            std::string com = comx;
             std::wstring com0(com.length(), L' ');
             std::copy(com.begin(), com.end(), com0.begin());
             hComm = CreateFile(com0.c_str(), GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
