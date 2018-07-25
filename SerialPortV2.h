@@ -21,10 +21,7 @@ class SerialPortV2
 
         void open(std::string comx, std::string baud)
         {
-            std::string com = comx;
-            std::wstring com0(com.length(), L' ');
-            std::copy(com.begin(), com.end(), com0.begin());
-            hComm = CreateFile(com0.c_str(), GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+            hComm = CreateFileA(comx.c_str(), GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
             if (hComm == INVALID_HANDLE_VALUE)
             {
                 std::cout<<"Error in opening serial port"<<std::endl;
