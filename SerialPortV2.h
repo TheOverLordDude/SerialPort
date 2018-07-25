@@ -58,7 +58,6 @@ class SerialPortV2
             std::string buff;
             char temp;
             DWORD bytesRead;
-            std::cout<<"Reading from arduino..."<<std::endl;
             do
             {
                 ReadFile(hComm, &temp, sizeof(temp), &bytesRead, NULL);
@@ -66,7 +65,7 @@ class SerialPortV2
                 buff += temp;
             }
             while(bytesRead > 0);
-            std::cout<<"Reading from arduino done"<<std::endl;
+            std::cout<<"Reading from serial"<<std::endl;
             buff.pop_back();
             return buff;
         }
